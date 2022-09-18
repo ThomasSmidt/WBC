@@ -18,13 +18,11 @@ next.addEventListener('click', ()=>{
         size = allImages[0].clientWidth;
         counter = 0;
         allSlides.style.transform = 'translateX(0px)';        
-        console.log(counter, size);
         textFade();
     } else {
     size = allImages[0].clientWidth;
     allSlides.style.transition = "transform 0.4s ease-in-out";
     counter++
-    console.log(counter, size);
     allSlides.style.transform = 'translateX(' + (-size * counter) + "px)";
     textFade();
     }
@@ -37,13 +35,11 @@ prev.addEventListener('click', ()=>{
         allSlides.style.transition = "transform 0.4s ease-in-out";      
         counter = 2;
         allSlides.style.transform = 'translateX(' + (-size * counter) + "px)";
-        console.log(counter, size);
         textFade();
     } else if(counter > 0){
     size = allImages[0].clientWidth;
     allSlides.style.transition = "transform 0.4s ease-in-out";   
     counter--
-    console.log(counter, size);
     allSlides.style.transform = 'translateX('+(-size * counter) + "px)";
     textFade();
     }
@@ -70,77 +66,100 @@ function textFade() {
 // POPUPS //
 
 //Open Popups
+
 function firstPopup(){
+    noBlur = screen.width;
     document.getElementById("popup1").style.visibility = "visible"; 
-    document.getElementById("overlay").style.filter = "blur(1vw)"; 
     document.getElementById("overlay").style.overflow = "hidden"; 
+    console.log(noBlur);
+    //added if statement for when screenwidth > 365px to improve performance
+    if (noBlur > 375){
+        document.getElementById("overlay").style.filter = "blur(1vw)"; 
+    } else {
+        document.querySelector(".close-mobile").style.visibility = "visible";
+    }
 }
 
 function secondPopup(){
+    noBlur = screen.width;
     document.getElementById("popup2").style.visibility = "visible"; 
-    document.getElementById("overlay").style.filter = "blur(1vw)"; 
     document.getElementById("overlay").style.overflow = "hidden"; 
+    if (noBlur > 375){
+        document.getElementById("overlay").style.filter = "blur(1vw)"; 
+    } else {
+        document.querySelector(".close-mobile").style.visibility = "visible";
+    }
 }
 
 function thirdPopup(){
+    noBlur = screen.width;
     document.getElementById("popup3").style.visibility = "visible"; 
-    document.getElementById("overlay").style.filter = "blur(1vw)"; 
     document.getElementById("overlay").style.overflow = "hidden"; 
+    if (noBlur > 375){
+        document.getElementById("overlay").style.filter = "blur(1vw)"; 
+    } else {
+        document.querySelector(".close-mobile").style.visibility = "visible";
+    }  
 }
 
 function fourthPopup(){
+    noBlur = screen.width;
     document.getElementById("popup4").style.visibility = "visible"; 
-    document.getElementById("overlay").style.filter = "blur(1vw)"; 
     document.getElementById("overlay").style.overflow = "hidden"; 
+    if (noBlur > 375){
+        document.getElementById("overlay").style.filter = "blur(1vw)"; 
+    } else {
+        document.querySelector(".close-mobile").style.visibility = "visible";
+    } 
 }
 
 //Close Popups
-function close_first(){
+function closeFirst(){
     document.getElementById("popup1").style.visibility = "hidden"; 
-    document.getElementById("overlay").style.overflow = "auto"; 
+    document.getElementById("overlay").style.overflowY = "auto"; 
     document.getElementById("overlay").style.filter = "blur(0px)";  
+    document.querySelector(".close-mobile").style.visibility = "hidden";
 }
 
 function closeSecond(){
-    document.getElementById("popup2").style.visibility = "hidden"; 
-    document.getElementById("overlay").style.overflow = "auto"; 
+    document.getElementById("popup2").style.visibility = "hidden";
+    document.getElementById("overlay").style.overflowY = "auto"; 
     document.getElementById("overlay").style.filter = "blur(0px)";  
+    document.querySelector(".close-mobile").style.visibility = "hidden";
 }
 
 function closeThird(){
     document.getElementById("popup3").style.visibility = "hidden"; 
-    document.getElementById("overlay").style.overflow = "auto"; 
-    document.getElementById("overlay").style.filter = "blur(0px)";  
+    document.getElementById("overlay").style.overflowY = "auto"; 
+    document.getElementById("overlay").style.filter = "blur(0px)";
+    document.querySelector(".close-mobile").style.visibility = "hidden";  
 }
 
 function closeFourth(){
     document.getElementById("popup4").style.visibility = "hidden"; 
-    document.getElementById("overlay").style.overflow = "auto"; 
-    document.getElementById("overlay").style.filter = "blur(0px)";  
+    document.getElementById("overlay").style.overflowY = "auto"; 
+    document.getElementById("overlay").style.filter = "blur(0px)"; 
+    document.querySelector(".close-mobile").style.visibility = "hidden";
 }
+
+
 // MENU //
 
-//Shows Menu
-function show_menu(){
-    document.getElementById("hidden-menu").style.left = "0%";
-    document.getElementById("close-menu").style.opacity = "100%";
-    document.getElementById("menu-tab").style.opacity = "0%";
-    document.getElementById("close-menu").style.visibility = "visible";   
-    document.getElementById("menu-tab").style.visibility = "hidden";
-}
-
-//Hides Menu
-function close_menu(){
-    document.getElementById("close-menu").style.opacity = "0%";
-    document.getElementById("menu-tab").style.opacity = "100%";
-    document.getElementById("hidden-menu").style.left = "100%";
-    document.getElementById("close-menu").style.visibility = "hidden";
-    document.getElementById("menu-tab").style.visibility = "visible";
+//Shows/hides Menu
+document.querySelector("#hidden-menu").style.left = "100%";
+function changeMenu(x) {
+    x.classList.toggle("change");
+    if (document.querySelector("#hidden-menu").style.left == "100%"){
+        document.getElementById("hidden-menu").style.left = "0%";
+    }
+    else {
+        document.getElementById("hidden-menu").style.left = "100%";
+    }
 }
 
 // SEARCH BOX //
 
-//For desktop/tablet
+// For desktop/tablet
 function searchFunction() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");

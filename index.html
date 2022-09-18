@@ -19,8 +19,10 @@
             </div>
             <div class="navbar-subcontainer">               
                 <img class="search-icon" src="assets/images/search.svg" id="search-icon" alt="" onclick="rotateSearchIcon();showData();" >
-                <img src="assets/images/menu_tab.png" alt="" class="menu-tab" id="menu-tab" onclick="show_menu()">
-                <img src="assets/images/close.svg" alt="" class="close-menu" id="close-menu" onclick="close_menu()">
+                <div class="menu-container menu-tab" onclick="changeMenu(this)">
+                    <div class="bar1"></div>
+                    <div class="bar3"></div>
+                </div>
                 <!-- SEARCHBAR -->
                 <div class="search-box">
                     <input type="text" id="myInput" name="text" onkeyup="searchFunction()" onclick="showData()" class="searchbar" placeholder="search">
@@ -40,12 +42,13 @@
                                 <span class="search-publish">Published 12/0/21<br></span>
                                 <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit ipsam officia mini...</span>
                             </li></a>
+
                             <li><a href="#" onclick="thirdPopup()">
                                 <h2>10 types of coffee beans you need to know</h2>
                                 <span class="search-publish">Published 12/0/21<br></span>
                                 <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit ipsam officia mini...</span>
                             </a></li>
-                                
+
                             <li><a href="#" onclick="fourthPopup()">
                                 <h2>Challenge your barista skills to the max</h2>
                                 <span class="search-publish">Published 12/0/21<br></span>
@@ -78,9 +81,7 @@
                         <img class="menu-social" src="assets/images/instagram-white.svg" alt="">
                         <img class="menu-social" src="assets/images/facebook-white.svg" alt="">
                     </div>
-
                 </div>
-
             </nav>
         </div>
     </header>
@@ -94,6 +95,7 @@
                 <img src="assets/images/Coffee_3.png"  alt="">
             </div>            
         </div>
+        <!-- BUTTONS -->
         <button id="prevBtn"></button>
         <button id="nxtBtn"></button>
         <div class="sub-slider" id="slide-text-1">
@@ -294,7 +296,6 @@
                     <img src="assets/images/instagram-image-9.png" alt="">
                 </div>
             </div>
-
             <div class="footer-contact">
                 <p class="footer-text" id="footer-text-padding">Contact</p>
                 <p class="footer-details">World Barista Cup</p>
@@ -309,8 +310,12 @@
 </div>
     <div class="popup-container" id="popup1">
         <div class="article-popup">
-            <img class="popup-image" src="assets/images/Post-thumbnail-1.png" alt="">  
-            
+            <div class="close-container">
+                <div class="close-mobile">
+                    <img src="assets/images/close.svg" class="close-btn" alt="" onclick="closeFirst()">
+                </div>    
+            </div>
+            <img class="popup-image" src="assets/images/Post-thumbnail-1.png" alt="">              
             <div class="popup-text">
                 <h1>Wonderful Copenhagen 2021</h1>
                 <p class="popup-publish">Published 12/07/21</p>
@@ -321,16 +326,20 @@
                 <p class="popup-details">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique tenetur dolor officiis, optio sint nulla consectetur voluptates in, consequatur numquam dolorum culpa dicta quos hic voluptatum molestias eum praesentium voluptas tempora fugiat architecto nemo quia? Sint blanditiis amet, magnam doloribus, pariatur perferendis ipsa iusto dignissimos iure harum quis consequatur dicta porro neque iste eum ullam natus quibusdam facilis tempore est a eos laborum. Accusantium, reiciendis.<br><br></p>
                 <p class="popup-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, delectus! Repellat qui nulla officia nisi laudantium iste ipsa labore illum architecto? Corrupti nostrum quaerat molestias minima libero nulla accusamus in consequatur nam! Expedita sed cupiditate explicabo debitis beatae incidunt quis ex asperiores? Nemo animi voluptas consectetur? Dolorum in vero nulla corrupti ad, veritatis deserunt vitae architecto, rem nobis facilis delectus cum consequatur alias!<br><br></p>
                 <p class="popup-details">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt omnis voluptates molestiae nostrum laudantium, sit ullam optio ea autem dolorum impedit voluptatibus excepturi odio veritatis molestias sed ipsam nulla ratione modi tenetur, sint in a eligendi. Reprehenderit perferendis quisquam incidunt iure debitis enim neque culpa modi, error accusamus explicabo unde!</p>
-            </div>
+            </div>                         
         </div>
         <div class="close">
-            <img src="assets/images/close.svg" class="close-btn" alt="" onclick="close_first()">
-        </div>
+            <img src="assets/images/close.svg" class="close-btn" alt="" onclick="closeFirst()">
+        </div>       
     </div>
     <div class="popup-container" id="popup2">
         <div class="article-popup">
-            <img class="popup-image" src="assets/images/Post-thumbnail-2.png" alt="">  
-            
+            <div class="close-container">
+                <div class="close-mobile">
+                    <img src="assets/images/close.svg" class="close-btn" alt="" onclick="closeSecond()">
+                </div>    
+            </div> 
+            <img class="popup-image" src="assets/images/Post-thumbnail-2.png" alt="">             
             <div class="popup-text">
                 <h1>The most expensive coffee on the market</h1>
                 <p class="popup-publish">Published 12/07/21</p>
@@ -345,12 +354,17 @@
         </div>
         <div class="close">
             <img src="assets/images/close.svg" class="close-btn" alt="" onclick="closeSecond()">
-        </div>
+        </div>       
+    </div>
     </div>
     <div class="popup-container" id="popup3">
         <div class="article-popup">
+            <div class="close-container">
+                <div class="close-mobile">
+                    <img src="assets/images/close.svg" class="close-btn" alt="" onclick="closeThird()">
+                </div>    
+            </div>
             <img class="popup-image" src="assets/images/Post-thumbnail-3.png" alt="">  
-            
             <div class="popup-text">
                 <h1>10 types of coffee beans you need to know</h1>
                 <p class="popup-publish">Published 12/07/21</p>
@@ -369,8 +383,12 @@
     </div>
     <div class="popup-container" id="popup4">
         <div class="article-popup">
+            <div class="close-container">
+                <div class="close-mobile">
+                    <img src="assets/images/close.svg" class="close-btn" alt="" onclick="closeFourth()">
+                </div>    
+            </div>
             <img class="popup-image" src="assets/images/Post-thumbnail-4.png" alt="">  
-            
             <div class="popup-text">
                 <h1>Challenge your barista skills to the max</h1>
                 <p class="popup-publish">Published 12/07/21</p>

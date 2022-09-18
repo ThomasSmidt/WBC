@@ -59,8 +59,7 @@ html,body
     justify-content: right;
     width: 60%;
     margin: -1vw 0 0 27.15vw;
-    position: relative;
-   
+    position: relative;      
 }
 
 .links {
@@ -69,7 +68,7 @@ html,body
     margin-left: 1.7vw;
     display: inline-block;
     font-size: 1vw;
-    cursor: default;
+    cursor: pointer;
 }
 
 .links:after {
@@ -92,6 +91,34 @@ html,body
     margin-top: -.8vw;
 }
 
+.menu-container {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.65);
+  }
+  
+  .bar1, .bar3 {
+    width: 87%;
+    height: 3px;
+    background-color: white;;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(45deg) translate(5.5px, 5.5px);
+    transform: rotate(45deg) translate(5.5px, 5.5px);
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(-45deg) translate(5.5px, -5.5px);
+    transform: rotate(-45deg) translate(5.5px, -5.5px);
+}
 /* ------- SEARCH ------- */
 
 .searchbar {
@@ -299,11 +326,6 @@ input:focus {
 }
 
 /* -------CLOSE MENU FOR MOBILE------- */
-.close-menu {
-    position: absolute;
-    visibility: hidden;
-}
-
 .hidden-social {
     position: absolute;
     visibility: hidden;
@@ -325,11 +347,11 @@ input:focus {
 }
 
 @media screen and (max-width: 768px) {
-
     body {
         width: 100vw;
         height: auto;
     }
+
     .header-container{
         padding: 0;
         height: 18vw;
@@ -366,8 +388,7 @@ input:focus {
     .link-container {
         width: 90%;
         margin: 1.4vw 0 0 5.2vw;    
-        justify-content: center;
-       
+        justify-content: center;       
     }
     
 /* -------MEDIA QUERY FOR SLIDER------- */
@@ -603,7 +624,7 @@ input:focus {
         visibility: visible;
         position: relative;
         float: right;
-        margin-top: -9px;
+        margin-top: -11px;
         width: 37px;
         transition: opacity 400ms;
     }
@@ -616,19 +637,12 @@ input:focus {
         justify-content: space-between;
     }
 
-    .close-menu {
-        right: 12px;
-        top: 15px;
-        width: 14px;
-        transition: opacity 400ms;
-    }
-
-
     .hidden-social {
         visibility: visible;
         bottom: 60px;
         left: 29%;        
     }
+
     .menu-social {     
         padding: 0 10px;
     }
@@ -726,7 +740,7 @@ input:focus {
     }
 }
 
-/* ARTICLES */
+/* ------- ARTICLES ------- */
 
 .article-container {
     width: 59.4vw;
@@ -843,6 +857,7 @@ input:focus {
     background-color: black;
     color: white;
 }
+
 /* ------- RIGHT SECTION ------- */
 .items-right {
     width: 29%
@@ -978,6 +993,14 @@ input:focus {
     line-height: 1.4vw;
 }
 
+.close-container {
+    position: absolute;
+}
+
+.close-mobile{
+    visibility: hidden;
+}
+
 .close {
     display: flex;
     padding: .5vw;
@@ -1015,7 +1038,7 @@ input:focus {
     .article-container {
         width: 85%;
         padding-top: 4.5vw;
-        margin-top: 11.71vw;
+        margin-top: 6.9vw;
         padding-bottom: 0px;
     }
 
@@ -1177,7 +1200,7 @@ input:focus {
 @media screen and (max-width: 375px) {
 /* ------- MEDIA QUERY FOR ARTICLES ------- */
     .article-container {
-        padding-top: 68vw;
+        padding-top: 75vw;
     }
 
     .article {
@@ -1252,8 +1275,7 @@ input:focus {
 
     .right-section {
         text-align: left;
-        padding: 3vw 0 9vw 0;
-        
+        padding: 3vw 0 9vw 0;       
     }
 
     .right-section:last-of-type{
@@ -1308,6 +1330,7 @@ input:focus {
 
     .article-popup {
         width: 100vw;
+        margin: -1px -1px 0 0;
     }
 
     .popup-image {
@@ -1333,13 +1356,36 @@ input:focus {
         line-height: 7vw;
     }
 
-    .close {
-        position:absolute;
-        right: 0px;
+    .close-container {
+        position: relative;           
+    }
+
+    .close-mobile {
+        display: flex;
+        right: 0;
+        top: 0;
         padding: 2.5vw;
+        position: absolute;
+        display: flex;
+        background-color: black;
+        width: fit-content;
+        height: fit-content;
     }
     
-    .close img {
+    .close-mobile img {
+        height: 2.5vw;
+        width: 2.5vw;
+    }
+
+    .close {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        padding: 2.5vw;
+        visibility: hidden;
+    }
+    
+    .close-mobile img {
         height: 4.3vw;
         width: 4.3vw;
     }
@@ -1549,6 +1595,10 @@ input:focus {
     .about-wbc {
         width: 70%;
         margin: auto;
+    }
+
+    .bottom {
+        height:0vw;
     }
 }
 
